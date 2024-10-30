@@ -1,0 +1,10 @@
+2024-07-23 09:18:32.873 [info] Extension host with pid 11289 started
+2024-07-23 09:18:32.873 [info] Skipping acquiring lock for /var/www/html/venta_ropa_usada/~/.vscode-root/User/workspaceStorage/1c6c5fae370d081cb4f25dd22de3c9f3.
+2024-07-23 09:18:32.954 [info] ExtensionService#_doActivateExtension vscode.git-base, startup: true, activationEvent: '*'
+2024-07-23 09:18:33.010 [info] ExtensionService#_doActivateExtension vscode.github, startup: true, activationEvent: '*'
+2024-07-23 09:18:33.111 [info] Eager extensions activated
+2024-07-23 09:18:33.114 [info] ExtensionService#_doActivateExtension vscode.debug-auto-launch, startup: false, activationEvent: 'onStartupFinished'
+2024-07-23 09:18:33.119 [info] ExtensionService#_doActivateExtension vscode.merge-conflict, startup: false, activationEvent: 'onStartupFinished'
+2024-07-23 09:19:12.174 [info] ExtensionService#_doActivateExtension vscode.git, startup: false, activationEvent: 'api', root cause: vscode.github
+2024-07-23 09:19:23.102 [info] ExtensionService#_doActivateExtension vscode.php-language-features, startup: false, activationEvent: 'onLanguage:php'
+2024-07-23 09:19:23.152 [info] ExtensionService#_doActivateExtension vscode.emmet, startup: false, activationEvent: 'onLanguage'

@@ -1,0 +1,330 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: monospace;
+    text-align: center;
+    background: #141414;
+    color: #ebc47d;
+}
+h2{
+    font-weight: bold;
+}
+/*Titulo*/
+.titulo{
+	display: flex;
+	flex-flow: row;
+    background-color: rgb(153, 90, 44);
+    overflow: hidden;
+}
+.logo {
+    width: 40px; /* Ajusta el ancho del logo */
+    height: 30px; /* Ajusta la altura del logo */
+    margin: 4px;
+    border-radius: 50%; /* Mantiene el logo redondo */
+    background: rgba(140, 30, 5, 0.7);
+}
+
+.cinecc {
+    font-size: 20px; /* Ajusta el tamaño del texto */
+    margin: 5px; /* Reduce el margen alrededor del título */
+    padding: 0.1%; /* Reduce el espacio interno */
+    text-align: center;
+    border-radius: 30px;
+    color: #ebc47d;
+    width: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: rgba(140, 30, 5, 0.5);
+}
+
+/*Categoria*/
+.categoria{
+	background-color: rgb(140, 30, 5);
+	border: none;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around;
+    font-family: monospace;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 8px 20px 4px #000000;
+
+}
+.categoria button, .categoria a{
+    font-family: monospace;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    text-decoration: none;
+    font-size: 30px;
+    border: none;
+    background: none;
+	color: #ebc47d;
+}
+.categoria button:hover, .categoria a:hover{
+    background-color: rgb(115, 25, 4);
+    background-blend-mode: exclusion;
+}
+/*Presentacion (Slider)*/
+.slider {
+	width: 100%;
+    height: auto;
+	margin: 5px auto 0px;
+	overflow: hidden;
+}
+.slider div {
+	display: flex;
+	padding: 0;
+	width: 333.3%;
+	animation: slide 15s infinite alternate ease-in-out;
+}
+.slider a {
+	width: 100%;
+	list-style: none;
+}
+.slider img {
+	width: 100%;
+}
+@keyframes slide {
+	0% {margin-left: 0;}
+    21% {margin-left: 0;}
+	29% {margin-left: -100%;}
+	71% {margin-left: -100%;}
+	79% {margin-left: -200%;}
+	100% {margin-left: -200%;}
+}
+/*Catalogo*/
+/*Footer*/
+.footer{
+	display: grid;
+	grid-template-columns: repeat(3,30%);
+	align-content: space-between;
+	justify-content: center;
+}
+.footer div{
+	margin-left: 10%;
+	margin-right: 10%;
+    font-size: 50%;
+}
+.contactos{
+	padding: 0.3%;
+    color: #f2daad;
+}
+/*<style> productos welcome*/
+    .productos-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+    .producto-card {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        margin: 10px;
+        overflow: hidden;
+        text-align: center;
+    }
+    .imagen-producto {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .producto-info {
+        padding: 15px;
+    }
+    .producto-info h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    .producto-info p {
+        margin: 5px 0;
+        color: #555;
+    }
+    .producto-acciones {
+        margin-top: 10px;
+    }
+    .producto-acciones a {
+        display: inline-block;
+        margin: 5px;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .producto-acciones a:hover {
+        background-color: #0056b3;
+    }
+    /*ESTLOS LOGIN*/
+    .login-container {
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        margin: 0 auto; /* Centrar el contenedor */
+        margin-top: 50px; /* Espacio superior */
+        margin-bottom: 50px;
+    }
+    
+    /* Estilos para el formulario de login */
+    .login-form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Estilo para el título del formulario */
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    
+    /* Estilos para los grupos de entrada */
+    .input-group {
+        margin-bottom: 15px;
+    }
+    
+    /* Estilo para las etiquetas */
+    .input-group label {
+        margin-bottom: 5px;
+        color: #555;
+        font-weight: bold;
+    }
+    
+    /* Estilos para los campos de entrada */
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+    
+    /* Estilo para el botón de inicio de sesión */
+    .login-btn {
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        transition: background-color 0.3s;
+    }
+    
+    
+    
+    
+    
+    /* Efecto hover para el botón */
+    .login-btn:hover {
+        background-color: #0056b3;
+    }
+    
+    /* Estilos para los enlaces */
+    .links {
+        margin-top: 15px;
+        text-align: center;
+    }
+    
+    .links a {
+        color: #007BFF;
+        text-decoration: none;
+        font-size: 14px;
+        margin: 0 5px;
+    }
+    
+    /* Efecto hover para los enlaces */
+    .links a:hover {
+        text-decoration: underline;
+    }
+    
+    /* Media Queries para pantallas más grandes */
+    @media (min-width: 768px) {
+        .login-container {
+            padding: 30px; /* Aumentar el padding en pantallas más grandes */
+        }
+    
+        .login-form h2 {
+            font-size: 1.5em; /* Aumentar el tamaño de fuente del título */
+        }
+    
+        .login-btn {
+            font-size: 18px; /* Aumentar el tamaño del botón en pantallas más grandes */
+        }
+    
+        .input-group input {
+            padding: 12px; /* Aumentar el padding de inputs */
+        }
+    }
+    /* Estilos para el contenedor de enlaces */
+    .link-container {
+        margin: 20px 0; /* Margen superior e inferior */
+    }
+    
+    /* Estilos para cada enlace */
+    .link-item {
+        display: block; /* Hacer que cada enlace ocupe toda la línea */
+        padding: 10px; /* Espaciado interno */
+        color: #007BFF; /* Color del texto */
+        text-decoration: none; /* Quitar subrayado */
+        font-size: 16px; /* Tamaño de fuente */
+        transition: background-color 0.3s; /* Transición suave para el fondo */
+    }
+    
+    /* Efecto hover para los enlaces */
+    .link-item:hover {
+        background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+    }
+    /*i imagen prioducto*/
+    .imagen-producto {
+        width: 300px; /* Ancho moderado */
+        height: auto; /* Mantiene la proporción */
+        max-height: 300px; /* Altura máxima */
+    }
+    /*estilos BIENBENIDOS LOGIN*/
+
+    /* Estilos para el contenedor de la bienvenida y el enlace */
+.header-right {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Contenedor para el texto e ícono juntos */
+.login-text-icon {
+    display: flex;
+    align-items: center;
+    gap: 6px; /* Ajusta el espacio entre el texto y el ícono */
+}
+
+/* Estilo para el texto de bienvenida */
+.header-right h4 {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+    line-height: 1;
+}
+
+/* Estilo para la imagen de inicio de sesión */
+.header-right .login-icon {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+/* Eliminar subrayado en el enlace */
+.header-right a {
+    text-decoration: none;
+}

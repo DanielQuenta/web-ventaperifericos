@@ -1,0 +1,97 @@
+CREATE DATABASE tiendita;
+USE tiendita;
+
+--  Cliente 
+CREATE TABLE cliente (
+    idcliente INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20),
+    direccion VARCHAR(255),
+    fecha_registro DATE,
+    username VARCHAR(20) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Empleado
+CREATE TABLE empleado (
+    idempleado INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    apellido VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    telefono VARCHAR(20),
+    cargo ENUM('Vendedor', 'Gerente'),  -- Solo dos opciones: 'Vendedor' o 'Gerente'
+    fecha_contratacion DATE,
+    salario DECIMAL(10, 2)
+);
+
+-- Proveedor 
+CREATE TABLE proveedor (
+    idproveedor INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    telefono VARCHAR(20),
+    email VARCHAR(100),
+    direccion VARCHAR(255)
+);
+
+-- Categoría 
+CREATE TABLE categoria (
+    idcategoria INT PRIMARY KEY AUTO_INCREMENT,
+    nombre_categoria VARCHAR(50)  -- Ejemplo: 'Procesadores', 'Tarjetas Gráficas', 'Memorias RAM'
+);
+
+-- Producto
+CREATE TABLE producto (
+    idproducto INT PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100),
+    descripcion TEXT,
+    precio DECIMAL(10, 2),
+    stock INT,
+    idcategoria INT,  -- Relación con la tabla 'categoria'
+    idproveedor INT,  -- Relación con la tabla 'proveedor'
+    fecha_registro DATE,
+    FOREIGN KEY (idcategoria) REFERENCES categoria(idcategoria),  -- Relación con 'categoria'
+    FOREIGN KEY (idproveedor) REFERENCES proveedor(idproveedor)   -- Relación con 'proveedor'
+);
+
+-- Venta 
+CREATE TABLE venta (
+    idventa INT PRIMARY KEY AUTO_INCREMENT,
+    idcliente INT,  -- Relación con la tabla 'cliente'
+    idempleado INT, -- Relación con la tabla 'empleado'
+    fecha_venta DATE,
+    total DECIMAL(10, 2),
+    metodo_pago VARCHAR(50),  -- Ejemplo: 'Efectivo', 'Tarjeta de Crédito'
+    FOREIGN KEY (idcliente) REFERENCES cliente(idcliente),    -- Relación con 'cliente'
+    FOREIGN KEY (idempleado) REFERENCES empleado(idempleado)  -- Relación con 'empleado'
+);
+
+-- Tabla Producto-Venta (relación muchos a muchos)
+CREATE TABLE producto_has_venta (
+    idproducto INT,  -- Relación con la tabla 'producto'
+    idventa INT,     -- Relación con la tabla 'venta'
+    cantidad INT,
+    precio_unitario DECIMAL(10, 2),
+    PRIMARY KEY (idproducto, idventa),
+    FOREIGN KEY (idproducto) REFERENCES producto(idproducto),  -- Relación con 'producto'
+    FOREIGN KEY (idventa) REFERENCES venta(idventa)            -- Relación con 'venta'
+);
+INSERT INTO cliente (nombre, apellido, email, telefono, direccion, fecha_registro, username, password) VALUES
+('Juan', 'Pérez', 'juan.perez@example.com', '555-1234', 'Av. Siempre Viva 742', '2024-10-24', 'dani', 'daniflow'),
+('María', 'González', 'maria.gonzalez@example.com', '555-5678', 'Calle Falsa 123', '2024-10-24', 'daniel', 'quenta'),
+('Pedro', 'López', 'pedro.lopez@example.com', '555-8765', 'Paseo de la Reforma 456', '2024-10-24', 'dani1', '123456');
+
+INSERT INTO proveedor (nombre, telefono, email, direccion) VALUES
+('Provedor A', '555-1010', 'contacto@proveedora.com', 'Calle Ejemplo 123'),
+('Provedor B', '555-2020', 'info@proveedorb.com', 'Avenida Test 456'),
+('Provedor C', '555-3030', 'ventas@proveedorc.com', 'Boulevard de Proveedores 789');
+
+INSERT INTO categoria (nombre_categoria) VALUES
+('Procesadores'),
+('Tarjetas Gráficas'),
+('Memorias RAM');
+INSERT INTO empleado (nombre, apellido, email, telefono, cargo, fecha_contratacion, salario) VALUES
+('Juan', 'Pérez', 'juan.perez@example.com', '1234567890', 'Vendedor', '2023-01-15', 2500.00),
+('Ana', 'Gómez', 'ana.gomez@example.com', '0987654321', 'Gerente', '2022-05-22', 5000.00);
+
